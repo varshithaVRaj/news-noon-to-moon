@@ -11,6 +11,8 @@ class DashBoardVC: UIViewController {
     
     @IBOutlet weak var collectionView: CustomCollectionView!
     
+    private let viewModel = DashboardViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class DashBoardVC: UIViewController {
         
         
         initalSetUp()
-    
+        viewModel.getNews(for: "news")
         
     }
     

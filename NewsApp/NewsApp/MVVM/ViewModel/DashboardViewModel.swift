@@ -11,9 +11,41 @@ import UIKit
 class DashboardViewModel{
     
     
+    var articles: [Article] = []
+    var onNewsFetched: (() -> Void)?
+    var onError: ((String) -> Void)?
     
     
     
     
-    
+    func getNews(for query: String) {
+        let request = NewsAPI.searchNews(query: query)
+        
+        Networking.shared.request(request, type: NewsResponse.self, decodingType: .useDefaultKeys) { [weak self] result in
+            switch result {
+            case .success(let newsResponse):
+                self?.articles = newsResponse.articles
+                self?.onNewsFetched?() // Notify the view controller
+                
+            case .failure(let error):
+                let message: String
+                if let err = error as? NetworkError {
+                    switch err {
+                    case .decodableFailure(let decodingError):
+                        message = "Decoding Error: \(decodingError.localizedDescription)"
+                    default:
+                        message = "Network Error: \(err)"
+                    }
+                } else {
+                    message = "Unknown Error: \(error.localizedDescription)"
+                }
+                self?.onError?(message)
+            }
+        }
+    }
 }
+
+
+
+
+
