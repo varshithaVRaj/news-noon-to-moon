@@ -23,7 +23,7 @@ extension NewsAPI: NetworkRequestType {
         switch self {
         case .searchNews(let query):
             return [
-                "\(APIParameter.query.rawValue)": query,
+                "\(APIParameter.catagory.rawValue)": query,
                 "\(APIParameter.language.rawValue)": "en",
                 "\(APIParameter.token.rawValue)": Constants.apiKey
             ]
@@ -37,7 +37,11 @@ extension NewsAPI: NetworkRequestType {
     }
     
     var path: String {
-        return Constants.apiPath
+        return Constants.hadlinesPath
+    }
+    
+    var category: String{
+        return Constants.generalCategoryAPI
     }
 
     var method: HTTPMethod {

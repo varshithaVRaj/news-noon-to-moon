@@ -11,13 +11,11 @@ import UIKit
 class DashboardViewModel{
     
     
-    var articles: [Article] = []
-    var onNewsFetched: (() -> Void)?
+    var articles: [Article]?
+    var onNewsFetched: (([Article]) -> Void)?
     var onError: ((String) -> Void)?
     
-    
-    
-    
+
     func getNews(for query: String) {
         let request = NewsAPI.searchNews(query: query)
         
@@ -25,7 +23,7 @@ class DashboardViewModel{
             switch result {
             case .success(let newsResponse):
                 self?.articles = newsResponse.articles
-                self?.onNewsFetched?() // Notify the view controller
+                self?.onNewsFetched?(newsResponse.articles) // Notify the view controller
                 
             case .failure(let error):
                 let message: String

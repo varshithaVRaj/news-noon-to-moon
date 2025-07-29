@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
             fatalError("Could not load DashBoardVC from storyboard")
         }
 
-        vc1.title = "Home"
+        vc1.title = "Headlines"
         vc1.navigationItem.largeTitleDisplayMode = .always
         
         let nc1 = UINavigationController(rootViewController: vc1)

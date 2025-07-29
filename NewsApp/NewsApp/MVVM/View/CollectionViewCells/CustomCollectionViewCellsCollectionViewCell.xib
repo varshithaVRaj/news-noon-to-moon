@@ -11,30 +11,59 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCollectionViewCellsCollectionViewCell" id="gTV-IL-0wX" customClass="CustomCollectionViewCellsCollectionViewCell" customModule="NewsApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="143"/>
+            <rect key="frame" x="0.0" y="0.0" width="536" height="463"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="143"/>
+                <rect key="frame" x="0.0" y="0.0" width="536" height="463"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ws-YJ-hMk">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="143"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yS-Hl-dWz">
+                        <rect key="frame" x="10" y="10" width="516" height="443"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SX-x9-WHd">
+                                <rect key="frame" x="30" y="120" width="456" height="313"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="dRR-4R-OiS">
+                                <rect key="frame" x="208" y="20" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ys8-h6-H4z"/>
+                                    <constraint firstAttribute="width" constant="100" id="vae-We-5RV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9SX-x9-WHd" secondAttribute="trailing" constant="30" id="7SU-z0-pdS"/>
+                            <constraint firstItem="dRR-4R-OiS" firstAttribute="top" secondItem="5yS-Hl-dWz" secondAttribute="top" constant="20" id="GoY-MS-XPv"/>
+                            <constraint firstItem="dRR-4R-OiS" firstAttribute="centerX" secondItem="5yS-Hl-dWz" secondAttribute="centerX" id="IEW-1z-KHE"/>
+                            <constraint firstAttribute="bottom" secondItem="9SX-x9-WHd" secondAttribute="bottom" constant="10" id="VS0-nF-m2I"/>
+                            <constraint firstItem="9SX-x9-WHd" firstAttribute="top" secondItem="dRR-4R-OiS" secondAttribute="bottom" id="YPx-ea-qjG"/>
+                            <constraint firstItem="9SX-x9-WHd" firstAttribute="leading" secondItem="5yS-Hl-dWz" secondAttribute="leading" constant="30" id="zn8-N4-eNt"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="7ws-YJ-hMk" secondAttribute="bottom" id="LXz-PT-EEn"/>
-                <constraint firstAttribute="trailing" secondItem="7ws-YJ-hMk" secondAttribute="trailing" id="WAu-Ka-kcR"/>
-                <constraint firstItem="7ws-YJ-hMk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WMW-2o-RxP"/>
-                <constraint firstItem="7ws-YJ-hMk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mSq-sb-INk"/>
+                <constraint firstAttribute="trailing" secondItem="5yS-Hl-dWz" secondAttribute="trailing" constant="10" id="Jnm-XL-PZ9"/>
+                <constraint firstItem="5yS-Hl-dWz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="PWv-yb-mrA"/>
+                <constraint firstAttribute="bottom" secondItem="5yS-Hl-dWz" secondAttribute="bottom" constant="10" id="XfX-EP-nhp"/>
+                <constraint firstItem="5yS-Hl-dWz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="YC6-m0-JFy"/>
             </constraints>
-            <size key="customSize" width="150" height="143"/>
-            <point key="canvasLocation" x="215.26717557251908" y="52.464788732394368"/>
+            <size key="customSize" width="536" height="463"/>
+            <connections>
+                <outlet property="customView" destination="5yS-Hl-dWz" id="NVR-Zy-q1m"/>
+                <outlet property="imageView" destination="dRR-4R-OiS" id="T2l-uy-h3M"/>
+                <outlet property="titleLabel" destination="9SX-x9-WHd" id="ofC-Fd-6Of"/>
+            </connections>
+            <point key="canvasLocation" x="283.96946564885496" y="141.19718309859155"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="imagePlaceHolder" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

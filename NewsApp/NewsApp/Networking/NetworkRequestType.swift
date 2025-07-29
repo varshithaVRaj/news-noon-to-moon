@@ -11,8 +11,9 @@ import Network
 enum APIParameter: String {
     
     case contentType = "Content-Type"
-    case language = "lang"
+    case language = "language"
     case query = "q"
+    case catagory = "catagory"
     case token = "token"
     
 }
