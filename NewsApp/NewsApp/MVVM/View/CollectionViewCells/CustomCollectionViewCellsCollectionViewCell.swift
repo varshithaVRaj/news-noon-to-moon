@@ -12,6 +12,7 @@ class CustomCollectionViewCellsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var customView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var authorLabel: UILabel!
     
 
     override func awakeFromNib() {
@@ -22,10 +23,11 @@ class CustomCollectionViewCellsCollectionViewCell: UICollectionViewCell {
         customView.layer.borderWidth = 1
         customView.layer.cornerRadius = 10
         
-        titleLabel.numberOfLines = 5
+        titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
        
         titleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        
         
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 
 enum NewsAPI {
-    case searchNews(query: String)
+    case searchNews(query: String, page: Int)
 }
 
 extension NewsAPI: NetworkRequestType {
@@ -19,30 +19,30 @@ extension NewsAPI: NetworkRequestType {
         return nil
     }
     
+   
     var queryParams: [String : String] {
         switch self {
-        case .searchNews(let query):
+        case .searchNews(let query, let page):
             return [
-                "\(APIParameter.catagory.rawValue)": query,
-                "\(APIParameter.language.rawValue)": "en",
-                "\(APIParameter.token.rawValue)": Constants.apiKey
+                "\(APIParameter.query.rawValue)": query,
+                "\(APIParameter.token.rawValue)": Constants.apiKey,
+                "\(APIParameter.page.rawValue)": "\(page)"
+                //  "\(APIParameter.language.rawValue)": "en",
             ]
         }
     }
     
-    var headers: HTTPHeaders {
-        return [
-            "\(APIParameter.contentType)": Constants.contentType
-        ]
-    }
+//    var headers: HTTPHeaders {
+//        return [:]
+//    }
     
     var path: String {
         return Constants.hadlinesPath
     }
     
-    var category: String{
-        return Constants.generalCategoryAPI
-    }
+//    var category: String{
+//        return Constants.generalCategoryAPI
+//    }
 
     var method: HTTPMethod {
         return .get

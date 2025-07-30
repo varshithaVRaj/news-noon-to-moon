@@ -14,7 +14,8 @@ enum APIParameter: String {
     case language = "language"
     case query = "q"
     case catagory = "catagory"
-    case token = "token"
+    case token = "apiKey"
+    case page = "page"
     
 }
 
@@ -37,7 +38,7 @@ protocol NetworkRequestType {
     var method: HTTPMethod { get }
     var parameters: [String: Any]? { get }
     var queryParams: [String: String] { get }
-    var headers: HTTPHeaders { get }
+//    var headers: HTTPHeaders { get }
     
 }
 
@@ -68,9 +69,9 @@ extension NetworkRequestType {
         }
         var request = URLRequest(url: requestURL)
         request.httpMethod = method.rawValue
-        headers.forEach({
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
-        })
+//        headers.forEach({
+//            request.addValue($0.value, forHTTPHeaderField: $0.key)
+//        })
         
         // Query Parameters
         if !queryParams.isEmpty {

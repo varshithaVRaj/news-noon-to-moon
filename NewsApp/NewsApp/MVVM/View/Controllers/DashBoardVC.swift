@@ -17,12 +17,11 @@ class DashBoardVC: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
         initalSetUp()
-        viewModel.getNews(for: "general")
+        viewModel.getNews(for: "general", page: 1)
     }
     
-    func initalSetUp(){
+    private func initalSetUp(){
         
         self.collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CustomCollectionViewCellsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCellsCollectionViewCell")
@@ -37,6 +36,7 @@ class DashBoardVC: UIViewController, UICollectionViewDelegate {
         
     }
     
+ 
     
 }
 
@@ -58,17 +58,40 @@ extension DashBoardVC: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCellsCollectionViewCell", for: indexPath) as! CustomCollectionViewCellsCollectionViewCell
         
         if let data = viewModel.articles?[indexPath.row] {
-            print("the title is: \(data.title)")
             
-            cell.titleLabel.text = "\(data.title)"
-            
-            if let imageURL = data.image {
+            if let titleOfArticle = data.title {
+                print("the title of the article is: \(titleOfArticle)")
+                cell.titleLabel.text = "\(titleOfArticle)"
+            }
+        
+            if let imageURL = data.urlToImage {
                 print("the image url is \(imageURL)")
                 cell.imageView.loadImage(from: imageURL)
             }
+            
+            if let author = data.author {
+                cell.authorLabel.text = "\(author)"
+            }
+            
+            if indexPath.row == (viewModel.articles?.count ?? 0) - 1 {
+                print("the total articles are: \(String(describing: viewModel.articles?.count))")
+                   viewModel.loadNextPageIfNeeded(for: "general")
+               }
+               
+        
         }
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        
+    }
+    
 }
+
+
+
 

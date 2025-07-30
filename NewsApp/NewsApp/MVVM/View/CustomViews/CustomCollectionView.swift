@@ -41,7 +41,7 @@ class CustomCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout
             
             print("available width: \(availableWidth), width per item: \(availableWidth)")
             
-            return CGSize(width: widthPerItem, height: availableWidth - 150) // square cells
+            return CGSize(width: widthPerItem, height: availableWidth ) // square cells
         }
 
         func collectionView(_ collectionView: UICollectionView,
